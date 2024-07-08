@@ -9,7 +9,10 @@
 //===----------------------------------------------------------------------===//
 #include "llvm/SYCLLowerIR/ComputeModuleRuntimeInfo.h"
 #include "llvm/Demangle/Demangle.h"
+<<<<<<< HEAD
 #include "llvm/IR/PassInstrumentation.h"
+=======
+>>>>>>> 25406960db281ea8538043f76cc0cde407e9a7d3
 #include "llvm/SYCLLowerIR/CompileTimePropertiesPass.h"
 #include "llvm/SYCLLowerIR/DeviceGlobals.h"
 #include "llvm/SYCLLowerIR/HostPipes.h"

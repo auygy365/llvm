@@ -6,6 +6,7 @@
 // RUN: %clang -cc1 -fsycl-is-device -disable-llvm-passes -triple=spir64-unknown-unknown %s -emit-llvm-bc -o %t.device.bc
 // RUN: clang-offload-packager -o %t.fat --image=file=%t.device.bc,kind=sycl,triple=spir64-unknown-unknown
 // RUN: %clang -cc1 %s -triple=x86_64-unknown-linux-gnu -emit-obj -o %t.o -fembed-offload-object=%t.fat
+<<<<<<< HEAD
 //
 // Generate .o file as SYCL device library file.
 //
@@ -17,6 +18,11 @@
 //// RUN: clang-linker-wrapper --print-wrapped-module --host-triple=x86_64-unknown-linux-gnu \
 // RUN:                      -sycl-device-libraries=%t.devicelib.o \
 // RUN:                      -sycl-post-link-options="-split=auto -symbols -properties" %t.o -o %t.out 2>&1 --linker-path="/usr/bin/ld" | FileCheck %s
+=======
+// RUN: clang-linker-wrapper --print-wrapped-module --host-triple=x86_64-unknown-linux-gnu \
+// RUN:                      -sycl-device-library-location=%S/Inputs -sycl-post-link-options="-split=auto -symbols -properties" \
+// RUN:                      %t.o -o %t.out 2>&1 --linker-path="/usr/bin/ld" | FileCheck %s
+>>>>>>> 25406960db281ea8538043f76cc0cde407e9a7d3
 
 template <typename t, typename Func>
 __attribute__((sycl_kernel)) void kernel(const Func &func) {
